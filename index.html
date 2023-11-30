@@ -55,7 +55,29 @@
     </script>
 
   <script src="static/js/index.js"></script>
-  
+<!--
+  url('static/fonts/HARRY2.TTF') format('truetype');
+      src:  url('../fonts/harryp.TTF') format('truetype');
+      src:  url('../fonts/rom.woff') format('woff');
+       -->
+  <style>
+
+    @font-face {
+      font-family: 'magic';
+      src:  url('static/fonts/harryp.TTF') format('truetype');
+    }
+
+
+    .magic-font{
+      font-family: 'magic';
+      font-size: 50px;
+    }
+    .xtitle{
+      font-size: 28px;
+    }
+
+  </style>
+
 </head>
 <body>
  <!--  Editing via  -->
@@ -64,10 +86,10 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="xtitle is-1 publication-title" >
-              <span style="font-weight: 600;color: #eb002a">MagicStick🪄:</span>
+            <h2 class="xtitle is-1 publication-title" >
+              <span style="font-weight: 600; font-size: 40px; font-family: magic; color: #eb002a">MagicStick🪄</span>:
               Controllable Video Editing via Control Handle Transformations
-              </h1> 
+              </h2>
           </br>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
@@ -95,7 +117,7 @@
                   </span>
 
                   </div>
-                
+
               </br>
                   <div class="is-size-5 publication-authors">
                     <span class="author-block">
@@ -106,7 +128,7 @@
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                      
+
                        <!-- ArXiv abstract Link -->
                   <span class="link-block">
                     <a href="https://arxiv.org/abs/2304.01186" target="_blank"
@@ -149,7 +171,7 @@
 
 <!-- video properties (e.g., shape, size, location, motion) leveraging  -->
 <section class="hero">
-  <p class="trdl">TL;DR: Editing your video via the keyframe transformations on the extracted control signals.</p>
+  <p class="trdl">TL;DR: Editing video via the keyframe control signal transformations.</p>
   <div class="is-max-desktop">
     <div class="marquee-wrapper">
         <div class="marquee-block">
@@ -168,7 +190,7 @@
                 <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
                   <source src="static/videos/teaser/bear_bear.mp4"
                     type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.  
+                  sorry, your browser does not support HTML5 Videos.
                   </video>
                 <p class="text-white">  <c>Zoom in</c> the bear </p>
               </div>
@@ -299,7 +321,7 @@
                 <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
                   <source src="static/videos/teaser/swan_duck.mp4"
                     type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.  
+                  sorry, your browser does not support HTML5 Videos.
                   </video>
                 <p class="text-white"> <c>Zoom in</c> the swan & swan ➜ <c>duck<sup></sup></c> </p>
               </div>
@@ -341,7 +363,7 @@
                 <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
                   <source src="static/videos/teaser/bear_bear.mp4"
                     type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.  
+                  sorry, your browser does not support HTML5 Videos.
                   </video>
                   <p class="text-white"> <c>Zoom in</c> the bear </p>
               </div>
@@ -390,17 +412,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Text-based video editing has recently attracted considerable interest in changing the style or replacing the objects with 
-            a similar structure. Beyond this, we demonstrate that properties such as shape, size, location, motion, etc., can also be 
-            edited in videos. Our key insight is that the keyframe’s transformations of the specific internal feature (e.g., edge maps 
+            Text-based video editing has recently attracted considerable interest in changing the style or replacing the objects with
+            a similar structure. Beyond this, we demonstrate that properties such as shape, size, location, motion, etc., can also be
+            edited in videos. Our key insight is that the keyframe’s transformations of the specific internal feature (e.g., edge maps
             of objects or human pose), can easily propagate to other frames to provide generation guidance. We thus propose  <i style="color: #eb002a">MagicStick</i>,
-             a controllable video editing method that edits the video properties by utilizing the transformation on the extracted internal 
-             control signals. In detail, to keep the appearance, we inflate both the pretrained image diffusion model and ControlNet to 
+             a controllable video editing method that edits the video properties by utilizing the transformation on the extracted internal
+             control signals. In detail, to keep the appearance, we inflate both the pretrained image diffusion model and ControlNet to
              the temporal dimension and train low-rank adaptions (LORA) layers to fit the specific scenes. Then, in editing, we perform
-              an inversion and editing framework. Differently, finetuned ControlNet is introduced in both inversion and generation for 
-              attention guidance with the proposed attention remix between the spatial attention maps of inversion and editing. 
-              Yet succinct, our method is the first method to show the ability of video property editing from the pre-trained text-to-image model. 
-              We present experiments on numerous examples within our unified framework. We also compare with shape-aware text-based editing 
+              an inversion and editing framework. Differently, finetuned ControlNet is introduced in both inversion and generation for
+              attention guidance with the proposed attention remix between the spatial attention maps of inversion and editing.
+              Yet succinct, our method is the first method to show the ability of video property editing from the pre-trained text-to-image model.
+              We present experiments on numerous examples within our unified framework. We also compare with shape-aware text-based editing
               and handcrafted motion video generation, demonstrating our superior temporal consistency and editing capability than previous works.
                The code and models will be made publicly available.
           </p>
@@ -423,8 +445,8 @@
         </div>
         <p class="content has-text-justified">
           <b style="color: #eb002a">Left</b>: we store all the attention maps in the DDIM inversion pipeline.
-          At the editing stage of the DDIM denoising, we then fuse the attention maps with the stored attention maps using the proposed Attention Blending Block. 
-          <br/><br/><b style="color: #eb002a">Right</b>: First, we replace the cross-attention maps of un-edited words~(e.g., road and countryside) with their maps using the source prompt during inversion. As for the edited words (e.g., posche car), we blend the self-attention maps during inversion and editing with an adaptive spatial mask obtained from cross-attention, which represents the areas that the user wants to edit. 
+          At the editing stage of the DDIM denoising, we then fuse the attention maps with the stored attention maps using the proposed Attention Blending Block.
+          <br/><br/><b style="color: #eb002a">Right</b>: First, we replace the cross-attention maps of un-edited words~(e.g., road and countryside) with their maps using the source prompt during inversion. As for the edited words (e.g., posche car), we blend the self-attention maps during inversion and editing with an adaptive spatial mask obtained from cross-attention, which represents the areas that the user wants to edit.
          </p>
       </div>
     </div>
@@ -436,7 +458,8 @@
 <section class="section hero is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Object Size Editing</h2>
+      <h2 class="title is-3"> <span class="magic-font">Engorgio, Reducio🪄 </span> (Object Size Editing)</h2>
+
       <!---######################################-->
       <div class="centered-row">
       <div class="marquee-item s-larger">
@@ -504,7 +527,7 @@
 <section class="section hero">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Object Position Editing</h2>
+      <h2 class="title is-3"> <span class="magic-font">Apparate🪄 </span> (Object Position Editing) </h2>
       <div class="centered-row">
       <div class="marquee-item s-larger">
         <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
@@ -545,7 +568,7 @@
 <section class="section hero is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Object Appearance Editing</h2>
+      <h2 class="title is-3"><span class="magic-font">Specialis Revelio🪄 </span> (Object Appearance Editing)</h2>
       <div class="centered-row">
       <div class="marquee-item s-larger-4">
         <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
@@ -608,7 +631,7 @@
 <section class="section hero">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Human Motion Editing</h2>
+      <h2 class="title is-3"><span class="magic-font">Tarantallegra🪄 </span> (Human Motion Editing)</h2>
       <div class="centered-row">
       <div class="marquee-item s-larger">
         <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
@@ -684,7 +707,7 @@
     <h2 class="title">Explaination</h2>
     <small>1. For better visualization, we only show the edited word in this page. Please check our paper and code for the whole source prompt. </small> <br/>
     <small>2. Most of the results are directly edited from <a href="https://github.com/vinthony/deep-blind-watermark-removal">Stable diffusion v1.4</a>. We use one-shot video diffusion model (<a href="https://tuneavideo.github.io/">Tune-A-Video</a>) checkpoints for shape-aware editing, the results are marked as . </small> <br/>
-    
+
     <small>3. Our method do not require to train on the Tune-A-Video Model. </small>
     </div>
   </section> -->
@@ -708,7 +731,7 @@
 
 
 <!-- Statcounter tracking code -->
-  
+
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
