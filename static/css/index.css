@@ -318,16 +318,21 @@ a:hover:after{
 }
 
 .s-larger{
-  width: 600px;
+  width: 800px;
   height: 200px;
 }
 
 .s-larger-4 {
-  width: 600px;
-  height: 230px;
+  width: 800px;
+  height: 250px;
 }
 
 
 .s-larger d{
   font-size: 16px;
+}
+
+.centered-row {
+  display: flex;
+  justify-content: center;
 }
